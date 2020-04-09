@@ -33,7 +33,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pyinstaller --version'
+                echo 'Hello World'
             }
             post {
                 success {
