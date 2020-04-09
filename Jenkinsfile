@@ -33,11 +33,11 @@ pipeline {
                 }
             }
             steps {
-                sh 'pyinstaller --onefile sources/add2vals.py'
+                sh 'pyinstaller --version'
             }
             post {
                 success {
-                    archiveArtifacts 'dist/add2vals'
+                    archiveArtifacts 'Jenkinsfile'
                 }
             }
         }
