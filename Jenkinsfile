@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python -m py_compile sources/add2vals.py sources/calc.py' 
+                sh 'python -m py_compile sources/add2vals.py sources/calc.py'
             }
         }
         stage('Test') { 
@@ -29,15 +29,17 @@ pipeline {
         stage('Deliver') {
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux'
+                    image 'python:2-alpine'
                 }
             }
             steps {
-                echo 'Hello World'
+                sh 'pip install pyinstaller'
+                sh 'pip list'
+                sh 'pyinstaller --onefile sources/add2vals.py'
             }
             post {
                 success {
-                    archiveArtifacts 'Jenkinsfile'
+                    archiveArtifacts 'dist/add2vals'
                 }
             }
         }
