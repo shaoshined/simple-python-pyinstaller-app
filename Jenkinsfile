@@ -35,7 +35,7 @@ pipeline {
             steps {
                 sh 'pip install pyinstaller'
                 sh 'pip list'
-                sh 'ls -la'
+                sh 'pyinstaller -V'
             }
             post {
                 success {
