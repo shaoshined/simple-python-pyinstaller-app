@@ -35,7 +35,7 @@ pipeline {
             steps {
                 sh 'pip install pyinstaller'
                 sh 'pip list'
-                sh 'pyinstaller -V'
+                sh 'pyinstaller -F sources/add2vals.py'
             }
             post {
                 success {
