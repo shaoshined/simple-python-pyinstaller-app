@@ -35,7 +35,7 @@ pipeline {
             steps {
                 sh 'pip install pyinstaller'
                 sh 'pip list'
-                sh 'pyinstaller --onefile sources/add2vals.py'
+                echo 'ls -la'
             }
             post {
                 success {
